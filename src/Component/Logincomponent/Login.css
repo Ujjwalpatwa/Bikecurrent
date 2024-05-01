@@ -1,0 +1,20 @@
+.form-container {
+    margin: auto;
+    width: 50%;
+  }
+  
+  .form-container form {
+    text-align: center;
+  }
+  
+  .form-container label {
+    margin-right: 10px;
+  }
+  
+  .form-container button {
+    margin-right: 10px;
+  }
+  
+  .error-message {
+    color: red;
+  }

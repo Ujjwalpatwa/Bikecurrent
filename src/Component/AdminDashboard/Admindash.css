@@ -1,0 +1,38 @@
+/* AdminDash.css */
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url(''); /* Replace 'path/to/your/image.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    
+}
+
+.bg-image {
+    background-image: url("your-background-image-url.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.75); /* 75% opacity black */
+    
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    align-items: center; /* Center vertically */
+}
+
+.nav-link {
+    color: #ffffff;
+    margin-left: 20px; /* Adjust spacing between links */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
