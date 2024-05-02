@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Signup.css'; // Import CSS file
+import './CustSignup.css'; // Import CSS file
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -9,40 +9,20 @@ const Signup = () => {
     userEmail: '',
     userPassword: '',
     driverLicense: '',
-    userRole:'',
-    bike: {
-      bikeName: '',
-      bikeColor: '',
-      bikeModel: '',
-      bikePlateNumber: ''
-    }
+    userRole: 'CUSTOMER',
   });
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // If the changed field is part of the bike details, update the nested state
-    if (name.startsWith('bike.')) {
-      const bikeField = name.split('.')[1]; // Extract the bike field name (e.g., bikeName, bikeColor, etc.)
-      setFormData({
-        ...formData,
-        bike: {
-          ...formData.bike,
-          [bikeField]: value
-        }
-      });
-    } else {
-      // Otherwise, update the top-level state
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/api/captain/post', {
+      const response = await fetch('http://localhost:8080/api/customer/post', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,13 +40,7 @@ const Signup = () => {
           userEmail: '',
           userPassword: '',
           driverLicense: '',
-          userRole:'',
-          bike: {
-            bikeName: '',
-            bikeColor: '',
-            bikeModel: '',
-            bikePlateNumber: ''
-          }
+          userRole: 'CUSTOMER',
         });
         console.log('Signup successful');
       } else {
@@ -82,7 +56,7 @@ const Signup = () => {
     <div className="signup-container">
       <h2>Signup Page</h2>
       <form onSubmit={handleSignup}>
-        <div>
+        <div className="form-group">
           <label>Name:</label>
           <input
             type="text"
@@ -92,7 +66,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Aadhaar ID:</label>
           <input
             type="text"
@@ -102,7 +76,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Contact:</label>
           <input
             type="text"
@@ -112,7 +86,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Email:</label>
           <input
             type="email"
@@ -122,7 +96,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Password:</label>
           <input
             type="password"
@@ -132,7 +106,7 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>License:</label>
           <input
             type="text"
@@ -142,52 +116,12 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Role:</label>
           <input
             type="text"
             name="userRole"
             value={formData.userRole}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Bike Name:</label>
-          <input
-            type="text"
-            name="bike.bikeName"
-            value={formData.bike.bikeName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Bike Color:</label>
-          <input
-            type="text"
-            name="bike.bikeColor"
-            value={formData.bike.bikeColor}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Bike Model:</label>
-          <input
-            type="text"
-            name="bike.bikeModel"
-            value={formData.bike.bikeModel}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Bike Plate Number:</label>
-          <input
-            type="text"
-            name="bike.bikePlateNumber"
-            value={formData.bike.bikePlateNumber}
             onChange={handleChange}
             required
           />

@@ -6,7 +6,7 @@ import './Admindash.css';
 const Admindash = () => {
   return (
     <>
-    <body>
+    
       
     
       <div className="bg-image h-screen">
@@ -27,7 +27,7 @@ const Admindash = () => {
                 </nav>
             </header>
         </div>
-        </body>
+        
     </>
     // <div>
     //   <nav>

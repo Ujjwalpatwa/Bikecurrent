@@ -1,13 +1,6 @@
-/* AdminDash.css */
-body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    background-image: url(''); /* Replace 'path/to/your/image.jpg' with the path to your image */
-    background-size: cover; /* Cover the entire background */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Do not repeat the background image */
-    
-}
+AdminDash.css
+
+
 
 .bg-image {
     background-image: url("your-background-image-url.jpg");
@@ -16,8 +9,13 @@ body {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.75); /* 75% opacity black */
     
+    
+    background-color: rgba(0, 0, 0, 0.75); /* 75% opacity black */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Placed at the top */
+    width: 100%; /* Full width */
+    z-index: 1000;
 }
 
 .nav-links {
